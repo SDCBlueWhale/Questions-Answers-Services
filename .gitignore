@@ -1,0 +1,4 @@
+.env
+.env.test
+CSVData/
+node_modules
