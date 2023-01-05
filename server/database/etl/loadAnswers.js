@@ -4,6 +4,7 @@ const { Answer } = require('../db');
 let stream = fs.createReadStream('/Users/jacksonzhu/Desktop/Hack Reactor Precourse/Questions-Answers-Services/CSVData/answers.csv');
 
 async function loadData() {
+  console.log('load2');
   let csvData = [];
   let hasHeader = true;
   let index = 0;
@@ -15,12 +16,12 @@ async function loadData() {
       data[3] = time;
       let obj = {
         id: Number(data[0]),
-        questionId: Number(data[1]),
+        QuestionId: Number(data[1]),
         body: String(data[2]),
         date: Date(data[3]),
         answerer_name: String(data[4]),
         answerer_email: String(data[5]),
-        reported: (Number(data[6])),
+        reported: (Boolean(data[6])),
         helpfulness: Number(data[7])
       }
 
@@ -32,7 +33,6 @@ async function loadData() {
     })
     .on('end', async function() {
       // csvData.shift();
-      [1,2,3,4,5,6,7,8,9,10]
       let chunk = [];
       let index = 0;
       for(let i = 0; i < csvData.length; i++) {

@@ -5,6 +5,7 @@ let stream = fs.createReadStream('/Users/jacksonzhu/Desktop/Hack Reactor Precour
 
 
 async function loadData() {
+  console.log('load3')
   let csvData = [];
   let hasHeader = true;
   let index = 0;
@@ -21,7 +22,7 @@ async function loadData() {
         date: String(data[3]),
         asker_name: String(data[4]),
         asker_email: String(data[5]),
-        reported: Number(data[6]),
+        reported: Boolean(data[6]),
         helpfulness: Number(data[7]),
       }
 
