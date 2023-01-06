@@ -21,7 +21,7 @@ async function loadData() {
         date: Date(data[3]),
         answerer_name: String(data[4]),
         answerer_email: String(data[5]),
-        reported: (Boolean(data[6])),
+        reported: (Boolean(Number(data[6]))),
         helpfulness: Number(data[7])
       }
 

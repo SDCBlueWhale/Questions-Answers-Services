@@ -1,6 +1,6 @@
 const fs = require('fs');
 const fastcsv = require('fast-csv');
-const { Question } = require('../db');
+const { Question, sequelize } = require('../db');
 let stream = fs.createReadStream('/Users/jacksonzhu/Desktop/Hack Reactor Precourse/Questions-Answers-Services/CSVData/questions.csv');
 
 
@@ -22,7 +22,7 @@ async function loadData() {
         date: String(data[3]),
         asker_name: String(data[4]),
         asker_email: String(data[5]),
-        reported: Boolean(data[6]),
+        reported: Boolean(Number(data[6])),
         helpfulness: Number(data[7]),
       }
 
@@ -34,7 +34,6 @@ async function loadData() {
     })
     .on('end', async function() {
       // csvData.shift();
-      [1,2,3,4,5,6,7,8,9,10]
       let chunk = [];
       let index = 0;
       for(let i = 0; i < csvData.length; i++) {
@@ -53,7 +52,6 @@ async function loadData() {
 
     stream.pipe(csvStream);
 }
-
 
 
 loadData();

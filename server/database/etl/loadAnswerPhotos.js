@@ -3,6 +3,7 @@ const fastcsv = require('fast-csv');
 const { AnswerPhoto } = require('../db');
 let stream = fs.createReadStream('/Users/jacksonzhu/Desktop/Hack Reactor Precourse/Questions-Answers-Services/CSVData/answers_photos.csv');
 
+//
 async function loadData() {
   console.log('load');
   let csvData = [];
@@ -22,8 +23,7 @@ async function loadData() {
         hasHeader = false;
       } else {
         csvData.push(obj);
-      }
-    })
+      } })
     .on('end', async function() {
       // csvData.shift();
       let chunk = [];
