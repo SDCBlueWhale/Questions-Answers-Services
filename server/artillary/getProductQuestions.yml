@@ -1,0 +1,26 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 1
+      name: "1"
+    - duration: 30
+      arrivalRate: 10
+      name: "10"
+    - duration: 30
+      arrivalRate: 100
+      name: "100"
+    - duration: 30
+      arrivalRate: 1000
+      name: "1000"
+scenarios:
+  # - name: "Get All Questions Related To Product ID"
+  - flow:
+      - get:
+          url: "/qa/questions/1/1/5"
+          # qs:
+            # id: 1
+            # page: 1
+            # count: 5
+
+

@@ -1,6 +1,10 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('sdc', '', '', {
-  dialect: 'postgres'
+  dialect: 'postgres',
+  define: {
+    timestamps: false,
+
+  }
 });
 
 sequelize.authenticate()
@@ -12,6 +16,7 @@ const Answer = sequelize.define('Answers', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     allowNull: false,
+    autoIncrement: true,
   },
   body: {
     type: DataTypes.TEXT,
@@ -35,8 +40,8 @@ const Answer = sequelize.define('Answers', {
     allowNull: false,
   },
   reported: {
-    type: DataTypes.INTEGER,
-    defaultValue: 0,
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
     allowNull: false,
   }
 });
@@ -46,6 +51,7 @@ const Question = sequelize.define('Question', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     allowNull: false,
+    autoIncrement: true,
   },
   product_id: {
     type: DataTypes.INTEGER,
@@ -68,8 +74,8 @@ const Question = sequelize.define('Question', {
     allowNull: false,
   },
   reported: {
-    type: DataTypes.INTEGER,
-    defaultValue: 0,
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
     allowNull: false,
   },
   helpfulness: {
@@ -86,6 +92,7 @@ const AnswerPhoto = sequelize.define('AnswerPhotos', {
     primaryKey: true,
     type: DataTypes.INTEGER,
     allowNull: false,
+    autoIncrement: true,
   },
   url: {
     type: DataTypes.TEXT,
@@ -98,4 +105,4 @@ AnswerPhoto.belongsTo(Answer);
 
 sequelize.sync();
 
-module.exports = { Question, Answer, AnswerPhoto };
+module.exports = { Question, Answer, AnswerPhoto, sequelize};
