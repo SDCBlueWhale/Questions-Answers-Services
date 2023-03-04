@@ -11,10 +11,45 @@ Questions and Answers service consists of two parts, an API server and a postgre
 
 ## From Source
 
-csv files not provided
+Install dependencies and load csv files into postgres (csv files not provided)
 
-``` 
-node loadAnswerPhotos.js
-node loadAnswers.js
-node loadQuestions.js
+```
+$ npm install
+$ node loadAnswerPhotos.js
+$ node loadAnswers.js
+$ node loadQuestions.js
+```
+
+## Endpoints
+
+```
+/qa/questions/:id/:page/:count
+```
+
+```
+/qa/questions/:question_id/answers
+```
+
+```
+/qa/questions
+```
+
+```
+/qa/questions/:question_id/answers
+```
+
+```
+/qa/questions/:question_id/helpful
+```
+
+```
+/qa/questions/:question_id/report
+```
+
+```
+/qa/answers/:answer_id/helpful
+```
+
+```
+/qa/answers/:answer_id/report
 ```
